@@ -1,0 +1,77 @@
+/* styles.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent-container {
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 600px; /* Optional: to limit the maximum width */
+}
+
+.parent-container.light {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.parent-container.dark {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.child-container {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100%; /* Ensures the child container is full width within the parent */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.child-container.light {
+  background-color: #fff;
+  color: #333;
+}
+
+.child-container.dark {
+  background-color: #555;
+  color: #fff;
+}
+
+.animated-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.3s;
+}
+
+.animated-button:hover {
+  transform: scale(1.05);
+}
+
+.animated-button:active {
+  transform: scale(0.95);
+}
+
+.light .animated-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.dark .animated-button {
+  background-color: #45a049;
+  color: #f0f0f0;
+}
