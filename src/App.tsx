@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import ChildComponent from './ChildComponent';
 import { ThemeProvider } from './ThemeContext';
+import { FunctionType, GenericType } from './types';
 import './App.css';
 
 const ParentComponent: React.FC = () => {
   const [count, setCount] = useState(0);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
-  const handleClick = () => {
-    setCount((prevCount) => prevCount + 1);
+  const handleClick: FunctionType = (x, y) => {
+    const newCount = count + 1;
+    setCount(newCount);
+    return newCount;
   };
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  const myGenericObject: GenericType<string> = {
+    value: 'Hello, TypeScript!',
+    timestamp: Date.now(),
   };
 
   return (
@@ -24,7 +32,8 @@ const ParentComponent: React.FC = () => {
           stringProp="Salom, TypeScript!"
           booleanProp={true}
           numberProp={count}
-          functionProp={handleClick}
+          functionProp={() => handleClick(0, 0)}  
+          genericProp={myGenericObject}
         />
       </div>
     </ThemeProvider>
